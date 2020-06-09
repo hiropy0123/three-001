@@ -1,4 +1,4 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // 'production' か 'development' を指定
@@ -56,11 +56,15 @@ module.exports = {
     extensions: ['*', '.js', '.json']
   },
   plugins: [
-    new CopyWebpackPlugin([{
-      from: `${__dirname}/static/*`,
-      to: `${__dirname}/dist/`,
-      flatten: true
-    }]),
+    // new CopyPlugin({
+    //   patterns: [
+    //     {
+    //       from: `${__dirname}/static/*`,
+    //       to: `${__dirname}/dist/`,
+    //       flatten: true
+    //     }
+    //   ]
+    // }),
     new HtmlWebpackPlugin({
       template: `${__dirname}/src/index.html`
     })
