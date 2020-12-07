@@ -1,15 +1,15 @@
-const CopyPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import { Configuration } from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 // 'production' か 'development' を指定
 const MODE = 'development';
 
 const enabledSourceMap = MODE === 'development';
 
-module.exports = {
+const config: Configuration = {
   mode: MODE,
 
-  entry: './src/index.js',
+  entry: './src/index.ts',
   output: {
     filename: `bundle.js`,
     path: `${__dirname}/dist`
@@ -42,19 +42,15 @@ module.exports = {
         ]
       },
       {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        // Babel のオプションを指定する
-        options: {
-          presets: ['@babel/preset-env']
-        },
-        exclude: /node_modules/
+        "test": /\.ts$/,
+        "use": "ts-loader"
       }
     ]
   },
   resolve: {
-    extensions: ['*', '.js', '.json']
+    extensions: ['*', '.ts', '.js', '.json']
   },
+  target: ["web", "es5"],
   plugins: [
     // new CopyPlugin({
     //   patterns: [
@@ -82,3 +78,5 @@ module.exports = {
     port: 3200
   }
 };
+
+export default config;

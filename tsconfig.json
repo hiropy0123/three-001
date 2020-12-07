@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "target": "ES5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "lib": ["dom", "dom.iterable", "es2020", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "isolatedModules": false,
+        "experimentalDecorators": true
+    },
+    "include": ["src"],
+    "exclude": ["node_modules"]
+}
